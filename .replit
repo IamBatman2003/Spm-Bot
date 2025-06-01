@@ -1,15 +1,11 @@
-entrypoint = "main.py"
+run = "python main.py"
+
+language = "python"
 modules = ["python-3.11"]
 
+[[ports]]
+localPort = 8080
+externalPort = 80
+
 [nix]
-channel = "stable-24_05"
-
-[unitTest]
-language = "python3"
-
-[gitHubImport]
-requiredFiles = [".replit", "replit.nix"]
-
-[deployment]
-run = ["python3", "main.py"]
-deploymentTarget = "cloudrun"
+packages = ["openssl", "pip", "python311"]
